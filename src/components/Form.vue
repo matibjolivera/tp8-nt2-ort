@@ -55,7 +55,6 @@ export default {
       maxNameLength: 15,
       ageMin: 18,
       ageMax: 120,
-      url: 'https://60b80c29b54b0a0017c0307a.mockapi.io/api/ort/users-tp6'
     }
   },
   methods: {
@@ -67,11 +66,7 @@ export default {
       }
     },
     enviar() {
-      this.axios.post(this.url, this.formData)
-          .then(() => {
-            alert('Creado correctamente')
-          })
-          .catch(e => console.error(e))
+      this.$store.dispatch('sendUser', this.formData)
       this.reset()
     },
     reset() {
